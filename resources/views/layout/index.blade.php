@@ -12,17 +12,41 @@
 
 <body>
 
-    {{-- HEADER --}}
+    {{-- header --}}
     
     @include('partials.header')
     
 
-    {{-- CONTEÚDO PRINCIPAL --}}
+    {{-- page --}}
     <main>
         @yield('content')
+        <section class="carousel">
+            <div class="list">
+                <article class="item">
+                    <div class="main-content">
+                        <div class="content">
+                            <h2>Iphone 17</h2>
+                            <p class="price">From $799</p>
+                            <p class="description">
+                                Experience the future of smartphones.
+                            </p>
+                            <button class="btn">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+
+                    <figure class="image">
+                        <img src="img/iphone17_purple.png" alt="iPhone 17">
+                        <figcaption>Experience the future of smartphones.</figcaption>
+                    </figure>
+                </article>
+            </div>
+        </section>
     </main>
 
-    {{-- FOOTER --}}
+
+    {{-- footer --}}
     @include('partials.footer')
     <script>
     document.addEventListener("DOMContentLoaded", function () {
