@@ -131,7 +131,6 @@ main {
     filter: blur(150px);
     opacity: .6;
 }
-
 .carousel .list .item {
     position: absolute;
     top: 0;
@@ -221,14 +220,21 @@ main {
     position: relative;
     z-index: 1;
     background: transparent;
+    overflow: hidden;  /* ← impede a imagem de vazar */
 }
 
 .carousel .list .item figure img {
     width: auto;
-    height: 70%;
-    max-width: 85%;
+    height: 62%;        /* ← menor que o purple */
+    max-width: 80%;
     object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+    filter: drop-shadow(0 -100px 50px rgb(152,177,190));
+    display: block;
+}
+
+/* Esconde imagens dos slides inativos */
+.carousel .list .item:not(.active) figure img {
+    display: none;
 }
 
 .carousel .list .item figure .color-dots {
@@ -257,3 +263,4 @@ main {
     border-color: #1d1d1f;
     transform: scale(1.15);
 }
+

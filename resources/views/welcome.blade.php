@@ -120,9 +120,13 @@
                     <div class="content">
                         <h2>iPhone 17</h2>
                         <p class="price">From $799</p>
-                        <p class="description">
-                            Experience the future of smartphones.
-                        </p>
+                        <div class="color-dots">
+                            <button class="dot active" data-index="0" style="background:#d2cfd3" title="White"></button>
+                            <button class="dot" data-index="1" style="background:#d0b7df" title="Purple"></button>
+                            <button class="dot" data-index="2" style="background:#9aa986" title="Green"></button>
+                            <button class="dot" data-index="3" style="background:#afbfd7" title="Blue"></button>
+                            <button class="dot" data-index="4" style="background:#6c6c6c" title="Black"></button>
+                        </div>
                         <button class="btn">
                             Learn More
                         </button>
@@ -130,13 +134,7 @@
                 </div>
                 <figure class="image">
                     <img src="img/iphone17/iphone17_black.png" alt="iPhone 17">
-                    <div class="color-dots">
-                        <button class="dot active" data-index="0" style="background:#d2cfd3" title="White"></button>
-                        <button class="dot" data-index="1" style="background:#d0b7df" title="Purple"></button>
-                        <button class="dot" data-index="2" style="background:#9aa986" title="Green"></button>
-                        <button class="dot" data-index="3" style="background:#afbfd7" title="Blue"></button>
-                        <button class="dot" data-index="4" style="background:#6c6c6c" title="Black"></button>
-                    </div>
+                    <figcaption>Experience the future of smartphones.</figcaption>
                 </figure>
             </article>
 
