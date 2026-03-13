@@ -122,7 +122,7 @@ main {
     top: 50px;
     left: 50px;
     content: '';
-    background-color: var(--glow-color, #0b668a); /* ← var de volta */
+    background-color: #0b668a;
     width: 400px;
     height: 300px;
     z-index: 0;
@@ -130,7 +130,6 @@ main {
     border-radius: 20px 50px 110px 230px;
     filter: blur(150px);
     opacity: .6;
-    transition: background-color 0.5s ease; /* ← transição suave */
 }
 .carousel .list .item {
     position: absolute;
@@ -192,7 +191,7 @@ main {
 }
 
 .carousel .list .item .main-content .content .btn {
-    background-color: #4f8b69;
+    background-color: #1981e9;
     color: white;
     border: none;
     padding: 8px 20px;
@@ -206,7 +205,7 @@ main {
 }
 
 .carousel .list .item .main-content .content .btn:hover {
-    background-color: #3d7054;
+    background-color: #0071e3;
 }
 
 .carousel .list .item figure {
@@ -298,6 +297,59 @@ main {
     }
 }
 
-.next .item.other_1{
-    z-index: 1;
+@keyframes effectPrev {
+    from {
+        transform: translateX(var(--transform-from));
+    }
+    to {
+        transform: translateX(calc(var(--transform-from) + var(--w-image)));
+    }
+}
+
+.prev .list .item.active .image {
+    --transform-from: calc(var(--w-image) * -1);
+}
+
+.prev .list .item.other_1 .image {
+    --transform-from: 0px;
+    z-index: 3;
+}
+
+.prev .list .item.other_2 .image {
+    z-index: 3;
+    --transform-from: var(--w-image);
+}
+
+.prev .list .item.other_2 .main-content {
+    opacity: 0;
+}
+
+@media screen and (max-width: 1023px) {
+    :root {
+        --calculate: 1;
+        --w-image: 400px; 
+    }
+    .carousel .list .item .main-content .content h2 {
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .carousel .list .item .image {
+        width: 100%;
+        left: 0;
+        justify-content: center;
+    }
+    .carousel .list .item .image figcaption {
+        color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+    .carousel .list .item .main-content .content {
+        display: none;
+    }
+    .arrows {
+        left: 50%;
+        justify-content: center;
+    }
 }
