@@ -11,6 +11,7 @@ body {
     width: 100%;
     background: #f5f5f7;
     color: white;
+    z-index: 100;
 }
 
 .apple-nav {
@@ -40,7 +41,7 @@ body {
 /* MAIN */
 
 main {
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 /* FOOTER */
@@ -140,31 +141,38 @@ main {
     height: 100%;
     display: grid;
     grid-template-columns: calc(100% - var(--w-image)) var(--w-image);
-    opacity: 0;              /* ← esconde todos por padrão */
+    opacity: 0;
     pointer-events: none;
 }
 
 .carousel .list .item.active {
-    opacity: 1;              /* ← só o ativo aparece */
+    opacity: 1;
     pointer-events: all;
 }
 
-/* Lado esquerdo — texto */
+/* A cor de fundo do main-content se espalha pelo item inteiro */
 .carousel .list .item .main-content {
     height: 100%;
     display: flex;
     align-items: center;
     padding: 0 60px;
+    grid-column: 1 / -1;  /* ← ocupa as duas colunas */
+    grid-row: 1;
 }
 
-/* Lado direito — imagem */
+/* Figure fica por cima do fundo */
 .carousel .list .item figure {
     margin: 0;
     display: flex;
+    flex-direction: column;        /* ← imagem em cima, legenda embaixo */
     align-items: center;
     justify-content: center;
     height: 100%;
-    overflow: hidden;
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    z-index: 1;
+    background: transparent;
 }
 
 /* Remove o seletor .item img genérico — só use esse: */
