@@ -85,6 +85,8 @@ main {
     height: 18px;
     cursor: pointer;
 }
+
+
 :root {
     --w-image: 45vw;
     --border-color: rgba(0, 0, 0, 0.08);
@@ -92,7 +94,7 @@ main {
 
 .carousel {
     width: 100%;
-    height: calc(100vh - 44px); /* desconta o header */
+    height: calc(100vh - 44px);
     overflow: hidden;
 }
 
@@ -102,7 +104,6 @@ main {
     position: relative;
 }
 
-/* Borda da coluna da imagem */
 .carousel .list::before {
     position: absolute;
     width: var(--w-image);
@@ -116,7 +117,6 @@ main {
     pointer-events: none;
 }
 
-/* Glow decorativo */
 .carousel .list::after {
     position: absolute;
     top: 50px;
@@ -132,7 +132,6 @@ main {
     opacity: .6;
 }
 
-/* Cada slide */
 .carousel .list .item {
     position: absolute;
     top: 0;
@@ -150,21 +149,70 @@ main {
     pointer-events: all;
 }
 
-/* A cor de fundo do main-content se espalha pelo item inteiro */
 .carousel .list .item .main-content {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 60px;
-    grid-column: 1 / -1;  /* ← ocupa as duas colunas */
+    grid-column: 1 / -1;
     grid-row: 1;
+    padding: 0;
 }
 
-/* Figure fica por cima do fundo */
+.carousel .list .item .main-content .content {
+    padding-left: 80px;
+    padding-top: 60px;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.carousel .list .item .main-content .content h2 {
+    font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: #1d1d1f;
+}
+
+.carousel .list .item .main-content .content .price {
+    font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    color: #6e6e73;
+    margin: 0;
+}
+
+.carousel .list .item .main-content .content .description {
+    font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, sans-serif;
+    font-size: 0.85rem;
+    color: #3a3a3c;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.carousel .list .item .main-content .content .btn {
+    background-color: #4f8b69;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-family: -apple-system, "SF Pro Display", BlinkMacSystemFont, sans-serif;
+    font-size: 0.8rem;
+    border-radius: 980px;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 8px;
+    transition: background 0.2s ease;
+}
+
+.carousel .list .item .main-content .content .btn:hover {
+    background-color: #3d7054;
+}
+
 .carousel .list .item figure {
     margin: 0;
     display: flex;
-    flex-direction: column;        /* ← imagem em cima, legenda embaixo */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -175,16 +223,37 @@ main {
     background: transparent;
 }
 
-/* Remove o seletor .item img genérico — só use esse: */
 .carousel .list .item figure img {
     width: auto;
-    height: 80%;
-    max-width: 90%;
+    height: 70%;
+    max-width: 85%;
     object-fit: contain;
-    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
 }
 
-.carousel .list .item .image figcaption {
-    font-size: 1.3em;
-    text-align: center;
+.carousel .list .item figure .color-dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel .list .item figure .color-dots .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.carousel .list .item figure .color-dots .dot:hover {
+    transform: scale(1.2);
+}
+
+.carousel .list .item figure .color-dots .dot.active {
+    border-color: #1d1d1f;
+    transform: scale(1.15);
 }

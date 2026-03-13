@@ -6,6 +6,8 @@
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('js/home.js') }}"> -->
+    <script src="js/script.js"></script>
 </head>
 
 <body>
